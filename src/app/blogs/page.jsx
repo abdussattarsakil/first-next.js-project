@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 const page = () => {
 
@@ -96,7 +97,9 @@ const page = () => {
                 <div className="border-2 border-solid m-2">
                     <h1>{blog.name}</h1>
                     <h1>{blog.bio}</h1>
-                    <button className="btn">{blog.id} - blog</button>
+                    <button className="btn btn-success">
+                        <Link href={`/blogs/${blog.id}`}>{blog.id} - blog details...</Link>
+                    </button>
                 </div>
             </div>)}
         </div>
