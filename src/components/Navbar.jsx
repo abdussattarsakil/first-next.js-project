@@ -6,7 +6,7 @@ const Navbar = () => {
     const list =<>
    <Link href={"/about"}>About</Link>
    <Link href={"/"}>Services</Link>
-   <Link href={"/"}>Location</Link>
+   <Link href={"/blogs"}>Blogs</Link>
     </>
 
     return (
@@ -24,7 +24,7 @@ const Navbar = () => {
                             {list}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <Link href={"/"} className="btn btn-ghost text-xl">daisyUI</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-5">
