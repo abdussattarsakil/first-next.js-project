@@ -1,5 +1,12 @@
 import Link from "next/link";
 
+import {Geist} from 'next/font/google'
+
+const geist = Geist({
+  weight: '400',
+  subsets: ['latin'],
+})
+
 const servicesData = [
     {
         "id": 1,
@@ -105,18 +112,21 @@ const servicesData = [
 
 const servicesPage = () => {
     return (
-        <div className="grid grid-cols-3">
-        {servicesData.map(serviceData=>
-        <div className="border border-dashed m-10 p-4 text-center" key={serviceData.id}>
-            <h1>Category :- {serviceData.category}</h1>
-            <h1>service name :- {serviceData.title}</h1>
-            <h1>Rating :- {serviceData.rating}</h1>
-            <h1>Price :- {serviceData.price}</h1>
-            <button className="btn btn-info">
-                <Link href={`/services/${serviceData.id}`}>{serviceData.title} service details</Link>
-            </button>
-        </div>)}
+        <div className={geist.className}>
+            <div className="grid grid-cols-3">
+                {servicesData.map(serviceData =>
+                    <div className="border border-dashed m-10 p-4 text-center" key={serviceData.id}>
+                        <h1>Category :- {serviceData.category}</h1>
+                        <h1>service name :- {serviceData.title}</h1>
+                        <h1>Rating :- {serviceData.rating}</h1>
+                        <h1>Price :- {serviceData.price}</h1>
+                        <button className="btn btn-info">
+                            <Link href={`/services/${serviceData.id}`}>{serviceData.title} service details</Link>
+                        </button>
+                    </div>)}
+            </div>
         </div>
+
     );
 };
 
