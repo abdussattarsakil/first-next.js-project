@@ -1,14 +1,19 @@
+'use client'
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 
 const Navbar = () => {
 
-    const list =<>
-   <Link href={"/about"}>About</Link>
-   <Link href={"/services"}>Services</Link>
-   <Link href={"/blogs"}>Blogs</Link>
-   <Link href={"/dashboard"}>Dashboard</Link>
-   <Link href={"/users"}>Users</Link>
+    const pathName = usePathname();
+    console.log(pathName);
+
+    const Linklist = <>
+        <Link href={"/about"} className={`${pathName === "/about" ? "text-blue-300" : ""}`}>About</Link>
+        <Link href={"/services"} className={`${pathName === "/services" ? "text-blue-300" : ""}`}>Services</Link>
+        <Link href={"/blogs"} className={`${pathName === "/blogs" ? "text-blue-300" : ""}`}>Blogs</Link>
+        <Link href={"/dashboard"} className={`${pathName === "/dashboard" ? "text-blue-300" : ""}`}>Dashboard</Link>
+        <Link href={"/users"} className={`${pathName === "/users" ? "text-blue-300" : ""}`}>Users</Link>
     </>
 
     return (
@@ -23,14 +28,14 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            {list}
+                            {Linklist}
                         </ul>
                     </div>
                     <Link href={"/"} className="btn btn-ghost text-xl">daisyUI</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-5">
-                        {list}
+                        {Linklist}
                     </ul>
                 </div>
                 <div className="navbar-end">
